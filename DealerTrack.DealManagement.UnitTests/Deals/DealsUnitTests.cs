@@ -66,6 +66,38 @@ namespace DealerTrack.DealManagement.UnitTests
             allDeals = await _mockDealRepository.Object.GetAllDeals();
             allDeals.Count.ShouldBe(2, "one more deal is just added");           
         }
+
+        [Fact]
+        public async Task VerifyInvalidFileFormatReturnException()
+        {
+            // precondition
+            var allDeals = await _mockDealRepository.Object.GetAllDeals();
+            allDeals.Count.ShouldBe(1, "Deals repository already has one deal");
+
+            // arrange
+            var handler = new CreateDealCommandHandler(_mapper, _mockDealRepository.Object, _mockLogger.Object);
+            var csvLines = new StringBuilder();
+            csvLines.AppendLine("DealNumber,CustomerName,DealershipName,Vehicle,Price,Date");
+            csvLines.AppendLine("3333,Milli Fulton, Sun of Saskatoon,,429,");
+            var fileName = "test.txt";
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(csvLines.ToString());
+            writer.Flush();
+            stream.Position = 0;
+
+            //create FormFile with desired data
+            IFormFile file = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
+
+            // act
+            var response = await handler.Handle(new CreateDealCommand() { files = new List<IFormFile> { file } }, CancellationToken.None);
+
+            // assert
+            response.Success.ShouldBeFalse();
+            response.Message.ShouldBeEquivalentTo("File Type: txt is not supported");
+            allDeals = await _mockDealRepository.Object.GetAllDeals();
+            allDeals.Count.ShouldBe(1, "txt file type is not supported");
+        }
     }
 }
 
