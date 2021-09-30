@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Composition.AttributedModel" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DealerTrack.DealManagement.Application\DealerTrack.DealManagement.Application.csproj" />
+    <ProjectReference Include="..\DealerTrack.DealManagement.Infrastructure\DealerTrack.DealManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

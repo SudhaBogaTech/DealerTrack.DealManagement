@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A3A2F219-1EA5-4AFB-88C1-8FF5706FF578}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E6811945-09ED-4449-BAF1-FFD76A7CA9A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{C8FDD967-B418-454F-A409-289B5EF43AB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{68524A42-87CE-4E8D-B035-52F0D392AE85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{33AF131A-84DB-4136-9EE4-F377D729D7C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{B86441CA-1D34-4644-A4C2-901FECD735E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealerTrack.DealManagement.Model", "DealerTrack.DealManagement.Model\DealerTrack.DealManagement.Model.csproj", "{10A6B7F6-20F9-43BF-8B21-A2C4A0B3F1EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealerTrack.DealManagement.Application", "DealerTrack.DealManagement.Application\DealerTrack.DealManagement.Application.csproj", "{09FFE166-4B03-4E93-A4D8-2E0AA48A632A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealerTrack.DealManagement.Persistence", "DealerTrack.DealManagement.Persistence\DealerTrack.DealManagement.Persistence.csproj", "{E458FC2F-BF51-41BF-A5DA-4E527E4EA291}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealerTrack.DealManagement.Infrastructure", "DealerTrack.DealManagement.Infrastructure\DealerTrack.DealManagement.Infrastructure.csproj", "{0847CE26-3E30-4EF3-9312-E58B925FAC6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealerTrack.DealManagement.WebAPI", "DealerTrack.DealManagement.WebAPI\DealerTrack.DealManagement.WebAPI.csproj", "{C20AB144-C844-4C91-9F96-855B2D39D1C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealerTrack.DealManagement.UI", "DealerTrack.DealManagement.UI\DealerTrack.DealManagement.UI.csproj", "{D842CBD9-A7EA-46DB-8A8B-14E81AE1A421}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10A6B7F6-20F9-43BF-8B21-A2C4A0B3F1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A6B7F6-20F9-43BF-8B21-A2C4A0B3F1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A6B7F6-20F9-43BF-8B21-A2C4A0B3F1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A6B7F6-20F9-43BF-8B21-A2C4A0B3F1EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09FFE166-4B03-4E93-A4D8-2E0AA48A632A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FFE166-4B03-4E93-A4D8-2E0AA48A632A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FFE166-4B03-4E93-A4D8-2E0AA48A632A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FFE166-4B03-4E93-A4D8-2E0AA48A632A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E458FC2F-BF51-41BF-A5DA-4E527E4EA291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E458FC2F-BF51-41BF-A5DA-4E527E4EA291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E458FC2F-BF51-41BF-A5DA-4E527E4EA291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E458FC2F-BF51-41BF-A5DA-4E527E4EA291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0847CE26-3E30-4EF3-9312-E58B925FAC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0847CE26-3E30-4EF3-9312-E58B925FAC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0847CE26-3E30-4EF3-9312-E58B925FAC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0847CE26-3E30-4EF3-9312-E58B925FAC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20AB144-C844-4C91-9F96-855B2D39D1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20AB144-C844-4C91-9F96-855B2D39D1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20AB144-C844-4C91-9F96-855B2D39D1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20AB144-C844-4C91-9F96-855B2D39D1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D842CBD9-A7EA-46DB-8A8B-14E81AE1A421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D842CBD9-A7EA-46DB-8A8B-14E81AE1A421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D842CBD9-A7EA-46DB-8A8B-14E81AE1A421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D842CBD9-A7EA-46DB-8A8B-14E81AE1A421}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8FDD967-B418-454F-A409-289B5EF43AB3} = {A3A2F219-1EA5-4AFB-88C1-8FF5706FF578}
+		{68524A42-87CE-4E8D-B035-52F0D392AE85} = {A3A2F219-1EA5-4AFB-88C1-8FF5706FF578}
+		{33AF131A-84DB-4136-9EE4-F377D729D7C3} = {A3A2F219-1EA5-4AFB-88C1-8FF5706FF578}
+		{B86441CA-1D34-4644-A4C2-901FECD735E0} = {A3A2F219-1EA5-4AFB-88C1-8FF5706FF578}
+		{10A6B7F6-20F9-43BF-8B21-A2C4A0B3F1EA} = {68524A42-87CE-4E8D-B035-52F0D392AE85}
+		{09FFE166-4B03-4E93-A4D8-2E0AA48A632A} = {68524A42-87CE-4E8D-B035-52F0D392AE85}
+		{E458FC2F-BF51-41BF-A5DA-4E527E4EA291} = {33AF131A-84DB-4136-9EE4-F377D729D7C3}
+		{0847CE26-3E30-4EF3-9312-E58B925FAC6F} = {33AF131A-84DB-4136-9EE4-F377D729D7C3}
+		{C20AB144-C844-4C91-9F96-855B2D39D1C1} = {C8FDD967-B418-454F-A409-289B5EF43AB3}
+		{D842CBD9-A7EA-46DB-8A8B-14E81AE1A421} = {B86441CA-1D34-4644-A4C2-901FECD735E0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1160C5FC-78F7-404B-A0B9-A4BB5F8FF12F}
+	EndGlobalSection
+EndGlobal

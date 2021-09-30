@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210930043731_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930043731_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210930051725_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930051725_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210930053808_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930053808_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210930054814_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930054814_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210930055655_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930055655_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210930060235_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930060235_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210930130026_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210930130026_InitialMigration.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DealerTrack.DealManagement.Application\DealerTrack.DealManagement.Application.csproj" />
+    <ProjectReference Include="..\DealerTrack.DealManagement.Model\DealerTrack.DealManagement.Model.csproj" />
+  </ItemGroup>
+</Project>
