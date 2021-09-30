@@ -17,8 +17,7 @@ namespace DealerTrack.DealManagement.Application.Features.Deals.Commands
 {
     public class CreateDealCommandHandler: IRequestHandler<CreateDealCommand, CreateDealCommandResponse>
     {
-        private readonly IDealRepository _dealRepository;
-        //private readonly IFileReaderFactory _fileReaderFactory;
+        private readonly IDealRepository _dealRepository;       
 
         private readonly IMapper _mapper;        
         private readonly ILogger<CreateDealCommandHandler> _logger;
@@ -26,8 +25,7 @@ namespace DealerTrack.DealManagement.Application.Features.Deals.Commands
         public CreateDealCommandHandler(IMapper mapper, IDealRepository dealRepository,  ILogger<CreateDealCommandHandler> logger)
         {
             _mapper = mapper;
-            _dealRepository = dealRepository;
-           // _fileReaderFactory = fileReaderFactory;
+            _dealRepository = dealRepository;            
             _logger = logger;
         }
 
@@ -50,22 +48,37 @@ namespace DealerTrack.DealManagement.Application.Features.Deals.Commands
                     {
                         var fileImporter = container.GetExports<IFileImporter>(fileType).FirstOrDefault();
                         if (fileImporter == null)
-                            throw new InvalidDataException($"File Type: {fileType} is not supported");
+                        {
+                            createDealCommandResponse.Success = false;
+                            createDealCommandResponse.Message = $"File Type: {fileType} is not supported";
+                            return createDealCommandResponse;
+                        }
                         else
                         {
-                            var dealsList = fileImporter.ImportFile(file);
-                            foreach (var deal in dealsList.Result)
+                            try
                             {
-                                var newDeal = deal.Transform();
-                                try
+                                var dealsList = fileImporter.ImportFile(file);
+                                foreach (var deal in dealsList.Result)
                                 {
-                                    _dealRepository.AddNewDeal(newDeal);
-                                    //await _dealRepository.AddAsync(newDeal);
+                                    var newDeal = deal.Transform();
+                                    try
+                                    {
+                                        _dealRepository.AddNewDeal(newDeal);
+                                        //await _dealRepository.AddAsync(newDeal);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        _logger.LogError($"Error while creating deal: {ex.Message}");
+                                        createDealCommandResponse.Success = false;
+                                    }
                                 }
-                                catch(Exception ex)
-                                {
-                                    _logger.LogError($"Error while creating deal: {ex.Message}");
-                                }
+                                createDealCommandResponse.Success = true;
+                            }
+                            catch(Exception ex)
+                            {
+                                _logger.LogError($"Error while parsing a file: {ex.Message}");
+                                createDealCommandResponse.Success = false;
+                                createDealCommandResponse.Message = "Invalid File Format";
                             }
                         }
                     }
@@ -74,12 +87,13 @@ namespace DealerTrack.DealManagement.Application.Features.Deals.Commands
                      
                    
                 }
-                createDealCommandResponse.Success = true;
+                
             }
             catch(Exception ex)
             {
                 _logger.LogError($"Error while creating deal: {ex.Message}");
                 createDealCommandResponse.Success = false;
+
             }
             return createDealCommandResponse;
         }

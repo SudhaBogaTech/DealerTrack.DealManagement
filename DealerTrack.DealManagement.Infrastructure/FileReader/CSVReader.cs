@@ -21,21 +21,12 @@ namespace DealerTrack.DealManagement.Infrastructure.FileReader
     [Export("csv", typeof(IFileImporter))]
     public class CSVReader :  IFileImporter
     {
-        public ILogger<CSVReader> _logger { get; }
-        //static CSVReader()
-        //{
-        //    FileReaderFactory.RegisterFileImporter("csv", new CSVReader());
-        //}
-
+        
         public CSVReader()
         {
 
         }
-        public CSVReader(ILogger<CSVReader> logger)
-        {
-            _logger = logger;
-
-        }
+        
         public async Task<List<CreateDealDTO>> ImportFile(IFormFile file)
         {
             var deals = new List<CreateDealDTO>();
@@ -65,7 +56,8 @@ namespace DealerTrack.DealManagement.Infrastructure.FileReader
                                 {
                                     linepos++;
                                     var dealData = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-
+                                    if (!string.IsNullOrEmpty(errormessage))
+                                        throw new Exception(errormessage);
                                     CreateDealDTO deal = AssignValues(dealData, dealDataheader, out errormessage);
                                     if (string.IsNullOrEmpty(errormessage))
                                         deals.Add(deal);
@@ -95,10 +87,16 @@ namespace DealerTrack.DealManagement.Infrastructure.FileReader
                         } while (line != null);
                     }
                 }
+                if (!string.IsNullOrEmpty(errormessage))
+                {
+                    
+                    throw new Exception(errormessage);
+                }
             }
             catch(Exception ex)
             {
-                _logger.LogError($"Error encounter while parsting the CSV file. Error is: {ex.Message}");
+               
+                throw ;
             }
             //custom error handling here
           return deals;

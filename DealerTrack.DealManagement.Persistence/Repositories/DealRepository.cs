@@ -1,4 +1,5 @@
 ﻿using DealerTrack.DealManagement.Application.Contracts.Persistence;
+using DealerTrack.DealManagement.Application.Exceptions;
 using DealerTrack.DealManagement.Application.Features.Deals.Commands;
 using DealerTrack.DealManagement.Application.Features.Deals.Queries;
 using DealerTrack.DealManagement.Model.Entities;
@@ -41,11 +42,13 @@ namespace DealerTrack.DealManagement.Persistence.Repositories
                 _dbContext.Deals.Add(newDeal);
                 _dbContext.SaveChanges();
             }
+            else
+                throw new NotFoundException("Deal Number", newDeal.DealNumber);
         }
 
-        public Task<List<DealListVm>> GetAllDeals()
+        public async Task<List<DealListVm>> GetAllDeals()
         {
-            return _dbContext.Deals.Include(m => m.Dealership)
+            return  await _dbContext.Deals.Include(m => m.Dealership)
                      .Include(v => v.Vehicle)
                      .Select(m => new DealListVm()
                      {

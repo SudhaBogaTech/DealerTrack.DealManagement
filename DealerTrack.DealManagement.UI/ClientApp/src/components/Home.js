@@ -56,8 +56,10 @@ export class Home extends Component {
                     uploading: false,
                 });
 
-
-
+                console.log(res.data)
+                if (res.data.success === false)
+                    message.error(res.data.message);
+                else
                 this.getDeals();
             })
             .catch(err => {
@@ -86,7 +88,7 @@ export class Home extends Component {
                 
                 const deals = res.data;
                 this.setState({ deals });
-                console.log(deals);
+                
                 this.getMostSoldVehicles();
             })
 
@@ -96,7 +98,7 @@ export class Home extends Component {
         axios.get(`${this.state.url}/api/Deal/GetMostPopularVehicles`)
             .then(res => {
                 const vehicles = res.data;
-                console.log(vehicles)
+                
                 this.setState({ vehicles });
             })
             .catch(err => console.log(err));
