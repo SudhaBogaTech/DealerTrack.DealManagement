@@ -116,6 +116,8 @@ namespace DealerTrack.DealManagement.Infrastructure.FileReader
                 Type type = obj.GetType();
                
                 PropertyInfo prop = type.GetProperty(val);
+                if (prop == null || (prop != null && prop.PropertyType == null))
+                    throw new Exception("Invalid header");
                 var propType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
                 //var dataType = propType.Name;
                 if (index < dealData.Length)
